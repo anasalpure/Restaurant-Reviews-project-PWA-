@@ -1,0 +1,30 @@
+{
+  "name": "restaurant-app",
+  "version": "1.0.0",
+  "description": "Restaurant  projects",
+  "main": "index.html",
+  "author": "anas alpure",
+  "devDependencies": {
+    "autoprefixer": "^9.1.1",
+    "css-loader": "^0.28.11",
+    "mini-css-extract-plugin": "^0.4.1",
+    "node-sass": "^4.9.3",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.20.3",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^2.1.5",
+    "webpack-dev-server": "^3.1.1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --open --hot",
+    "build_p": "webpack --mode production",
+    "build": "webpack -d",
+    "server": "webpack-dev-server --open",
+    "watch": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
