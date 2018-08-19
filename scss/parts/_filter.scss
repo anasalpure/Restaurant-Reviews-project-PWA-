@@ -1,0 +1,24 @@
+/* ====================== Restaurant Filtering ====================== */
+.filter-options {
+  width: 100%;
+  background-color: $secondary-color ;
+  padding: 5px 10px;
+  }
+  .filter-options h2 {
+    color: $secondary-text-color;
+    font-weight: normal;
+    line-height: 1;
+    margin: 0 20px;
+  }
+  .filter-options select {
+    background-color: $back-color;
+    border: 1px solid #fff;
+    font-family: Arial,sans-serif;
+    font-size: 11pt;
+    height: 35px;
+    letter-spacing: 0;
+    margin: 10px;
+    padding: 0 10px;
+    width: 200px;
+  }
+  

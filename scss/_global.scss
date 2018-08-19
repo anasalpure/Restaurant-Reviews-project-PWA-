@@ -1,0 +1,43 @@
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'),
+       url('https://fonts.gstatic.com/s/roboto/v15/2UX7WLTfW3W8TclTUvlFyQ.woff') format('woff');
+}
+
+
+*{
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: roboto, sans-serif;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  background: $back-color;
+}
+
+a {
+  text-decoration: none;
+}
+ 
+:focus{
+   outline: none;
+ }
+
+ h1 ,h2 ,h3 ,h4 h5 {
+  font-family: 'Coda';
+ }
+  
+.content {
+  padding: 45px 0;
+}
+
+.focusable{
+  cursor: pointer;
+}

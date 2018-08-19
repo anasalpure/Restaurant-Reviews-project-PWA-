@@ -1,0 +1,141 @@
+
+/* ====================== Restaurant Details ====================== */
+.details header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+// sm size containers
+.details .map-container {
+  background: blue none repeat scroll 0 0;
+  position: relative;
+  height: 70%;
+  width: 90%;
+  z-index: 0;
+
+}
+
+.restaurant-container{
+border-bottom: 1px solid #d9d9d9;
+border-top: 1px solid #fff;
+width: 100%;
+}
+.reviews-container {
+border-bottom: 1px solid #d9d9d9;
+border-top: 1px solid #fff;
+width: 100%;
+}
+
+
+
+.details .footer {
+  bottom: 0;
+  position: absolute;
+}
+
+.details #map {
+    background-color: $back-color;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+#restaurant-name {
+    color: $accent-color;
+    font-family: Arial,sans-serif;
+    font-size: 20pt;
+    font-weight: 200;
+    letter-spacing: 0;
+    margin: 15px 0 30px;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+#restaurant-img {
+      width: 90%;
+}
+#restaurant-address {
+    font-size: 12pt;
+    margin: 10px 0px;
+}
+
+#restaurant-cuisine {
+    background-color: $primary-color;
+    color: $secondary-text-color;
+    font-size: 12pt;
+    font-weight: 300;
+    letter-spacing: 10px;
+    margin: 0 0 20px;
+    padding: 2px 0;
+    text-align: center;
+    text-transform: uppercase;
+      width: 90%;
+  }
+
+
+.reviews-container h2 {
+    color: $accent-color;
+    font-size: 24pt;
+    font-weight: 300;
+    letter-spacing: -1px;
+    padding-bottom: 1pt;
+}
+#reviews-list {
+    margin: 0;
+    padding: 0;
+}
+#reviews-list li {
+    background-color: $back-color ;
+      border: 2px solid $primary-color-light;
+    display: block;
+    list-style-type: none;
+    margin: 0 0 30px;
+    overflow: hidden;
+    padding: 0 20px 20px;
+    position: relative;
+
+}
+#reviews-list li p {
+    margin: 0 0 10px;
+}
+#restaurant-hours td {
+    color: $primary-color;
+}
+
+ 
+.content{
+  height: 100%;
+  margin: 135px 0;
+}
+  
+
+/*md Break Point*/
+@media (min-width: 768px) {
+  .details .map-container {
+      position: fixed;
+      z-index: 1002;
+      top: 80px;
+      right: 0;
+      height: 87%;
+      width: 50%;
+  }
+
+  .restaurant-container{
+    width: 50%;
+  }
+  .reviews-container {
+    width: 50%;
+  }
+
+  .details .footer {
+    width: 50%;
+  }
+
+  
+  .content{
+    margin: 135px 20px;
+  }
+
+}

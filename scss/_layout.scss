@@ -1,0 +1,53 @@
+
+
+.main {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.scroller {
+  overflow: hidden;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*responsive css*/
+/*xs*/
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 100%;
+}
+/*sm*/
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+/*md*/
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+/*lg*/
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+/*xl*/
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
