@@ -275,6 +275,7 @@
             const image = document.createElement('img');
             image.className = 'restaurant-img';
             image.src = Controller.getImg(restaurant);
+            image.setAttribute('alt' , restaurant.name +' restaurant' )
             li.append(image);
 
             const div = document.createElement('div');

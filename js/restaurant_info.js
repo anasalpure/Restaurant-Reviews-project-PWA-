@@ -164,6 +164,7 @@
 
       const image = document.getElementById('restaurant-img');
       image.className = 'restaurant-img focusable';
+      image.setAttribute('alt' ,  restaurant.name +' restaurant' )
       image.setAttribute('aria-labelledby' , 'restaurant-address' );
       image.setAttribute('aria-describedby' , 'restaurant-cuisine' );
       image.src = Controller.getImg(restaurant);
