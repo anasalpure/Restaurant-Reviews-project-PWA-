@@ -64,7 +64,6 @@
     } ,
 
     notify(){
-      View.init();
 
       View.initMap( )
       .then( (map)=>{
@@ -75,6 +74,7 @@
 
       View.fillRestaurantHTML();
 
+      View.init();
     } ,
 
     /**
@@ -125,7 +125,7 @@
     
 
     init(){
-
+      View.A11y() ;
     } ,
 
     initMap( restaurant = Controller.getrestaurant() ){
@@ -157,20 +157,24 @@
       
       const name = document.getElementById('restaurant-name');
       name.innerHTML = restaurant.name;
+      name.className = "focusable" ;
 
       const address = document.getElementById('restaurant-address');
       address.innerHTML = restaurant.address;
 
       const image = document.getElementById('restaurant-img');
-      image.className = 'restaurant-img'
+      image.className = 'restaurant-img focusable';
+      image.setAttribute('aria-labelledby' , 'restaurant-address' );
+      image.setAttribute('aria-describedby' , 'restaurant-cuisine' );
       image.src = Controller.getImg(restaurant);
 
       const cuisine = document.getElementById('restaurant-cuisine');
       cuisine.innerHTML = restaurant.cuisine_type;
+      
 
       // fill operating hours
       if (restaurant.operating_hours) {
-        View.fillRestaurantHoursHTML(restaurant.operating_hours);
+        View.fillRestaurantHoursTable(restaurant.operating_hours);
       }
       // fill reviews
       View.fillReviewsHTML(restaurant.reviews);
@@ -179,8 +183,9 @@
     /**
      * Create restaurant operating hours HTML table and add it to the webpage.
      */
-    fillRestaurantHoursHTML (operatingHours) {
+    fillRestaurantHoursTable (operatingHours) {
       const hours = document.getElementById('restaurant-hours');
+      hours.className = "focusable" ;
       for (let key in operatingHours) {
         const row = document.createElement('tr');
 
@@ -202,6 +207,7 @@
     fillReviewsHTML ( reviews ) {
       const container = document.getElementById('reviews-container');
       const title = document.createElement('h2');
+      title.className = 'focusable' ;
       title.innerHTML = 'Reviews';
       container.appendChild(title);
 
@@ -232,9 +238,13 @@
      * Create review HTML and add it to the webpage.
      */
     createReviewHTML (review) {
+      let labelID=review.name[1]+'label';
+      let describeID=review.name[1]+'describe';
+
       const li = document.createElement('li');
       const name = document.createElement('p');
       name.innerHTML = review.name;
+      name.setAttribute('id' , labelID)
       li.appendChild(name);
 
       const date = document.createElement('p');
@@ -247,10 +257,48 @@
 
       const comments = document.createElement('p');
       comments.innerHTML = review.comments;
+      comments.setAttribute('id' , describeID)
       li.appendChild(comments);
 
+      li.className = 'focusable' ;
+
+      li.setAttribute('aria-labelledby' , labelID )
+      li.setAttribute('aria-describedby' , describeID )
+
       return li;
-    }
+    } ,
+
+    A11y() {
+      const VK_SPACE = 32;
+      const VK_ENTER = 13;
+      
+  
+      //get all element with focusable class
+      let elms=document.querySelectorAll(".focusable" );
+  
+      for(let i=0 ; i<elms.length ;i++){
+          let element=elms[i];
+          element.setAttribute("tabindex", "0" ) ;
+          let link = element.querySelector('a');
+          if( link ){
+            link.setAttribute("tabindex", "-1" )
+            element.addEventListener('click' , View.onA11yElemClicked)
+            element.addEventListener ('keydown',(event)=>{
+                if(event.keyCode == undefined ) return ;
+                if (event.keyCode == VK_SPACE || event.keyCode == VK_ENTER )  
+                    event.target.click();
+                
+            });
+        }
+      } 
+
+  } ,
+
+  onA11yElemClicked( event ){
+      let link= event.currentTarget.querySelector('a');
+      link.click();
+  } 
+
 
   } 
 
