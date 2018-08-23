@@ -336,14 +336,17 @@
             for(let i=0 ; i<elms.length ;i++){
                 let element=elms[i];
                 element.setAttribute("tabindex", "0" ) ;
-                element.querySelector('a').setAttribute("tabindex", "-1" ) ;;
-                element.addEventListener('click' , View.onA11yElemClicked)
-                element.addEventListener ('keydown',(event)=>{
-                    if(event.keyCode == undefined ) return ;
-                    if (event.keyCode == VK_SPACE || event.keyCode == VK_ENTER )  
-                        event.target.click();
-                    
-                });
+                let link = element.querySelector('a');
+                if( link ){
+                    link.setAttribute("tabindex", "-1" ) ;;
+                    element.addEventListener('click' , View.onA11yElemClicked)
+                    element.addEventListener ('keydown',(event)=>{
+                        if(event.keyCode == undefined ) return ;
+                        if (event.keyCode == VK_SPACE || event.keyCode == VK_ENTER )  
+                            event.target.click();
+                        
+                    });
+                }
             } 
 
         } ,
