@@ -8,7 +8,7 @@ on line link :
 
 
 ## clone the repo 
- ` git clone https://github.com/anasbr/mws-restaurant-stage-1.git `
+ ` git clone https://github.com/anasalpure/Restaurant-Reviews-project-PWA-.git `
 ## Install dependencies
  `npm install`
 
